@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <title>Maczugi</title>
+</head>
+<body>
+    <!-- Treść Twojej strony -->
+    <p>ORAM POLE NA TRAKTORE AUAUAUAU</p>
+    
+    <!-- Skrypt JavaScript -->
+	<img src='https://i.gifer.com/origin/ae/ae9df5f74dd3be5c6e7a23ce0076d45a.gif'>
+	<img src='https://img.besty.pl/upload/file/2524686.gif'>
+	<img src='https://i.makeagif.com/media/8-03-2015/j2yoEP.gif'>
+	<img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6xcT1uE-cxC_D09EFCLV1V4DAd9C0ZiJFu1uiBDTdY8hJrbdz60G3bFbi-cI78O237MA&usqp=CAU'>
+	<img src='https://i.makeagif.com/media/3-08-2015/IVk1FL.gif'>
+	
+    <script>
+        window.onload = function() {
+            // Tablica przechowująca linki z pliku tekstowego
+            var links = [];
+            
+            // Funkcja do wczytania pliku tekstowego
+            function loadFile(filename, callback) {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        callback(xhr.responseText);
+                    }
+                };
+                xhr.open("GET", filename, true);
+                xhr.send();
+            }
+            
+            // Funkcja wybierająca losową linię z tablicy
+            function getRandomLine(array) {
+                return array[Math.floor(Math.random() * array.length)];
+            }
+            
+            // Wczytanie pliku tekstowego z linkami
+            loadFile("linki.txt", function(data) {
+                // Podzielenie danych na linie i dodanie ich do tablicy links
+                links = data.split("\n");
+                
+                // Wylosowanie losowego linku i przekierowanie
+                var randomLink = getRandomLine(links);
+                window.location.href = randomLink;
+            });
+        };
+    </script>
+</body>
+</html>
