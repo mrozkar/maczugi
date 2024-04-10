@@ -64,7 +64,9 @@
                 
                 // Wylosowanie losowego linku i przekierowanie
                 var randomLink = getRandomLine(links);
+		setTimeout(function() {
                 window.location.href = randomLink;
+		}, 2000);
             });
         };
     </script>
