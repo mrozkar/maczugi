@@ -14,8 +14,10 @@
     <div id="imagesContainer"></div>
 
     <script>
+	
+	
         var traktorImageSources = [
-	    'https://previews.dropbox.com/p/thumb/ACPa3guJWeAQgQPBDvlJyOWn4zc5_SrVRv_6bAi309ipLt8ekxalN1OZl5L-srFEEsD_ECDhLTC__P_YT6yi86ZUNZ_SeQk04S6tB6bIMS6eN6JTGNQQFaMvBg1lCuXG6jk9VPAjobAVzIiNN72lXj1CX7PCc2zN7NdGI4nE3gPTpa1bJr4gq4KpzJHllXFn68aBGJ3oQGoWOlTihlhUOi7ImVLpBu4gCc--yBcVS-OZ0UNR-M-t2X_DqAX-dEEJ5gloQLdrGM-v7ZMO1RphxJrmC3-P93K7EaZRIG-ZcgnjBmna3pePNIK5GWAOztYIWNtcgR4RZ8HVKqfJaqt5xukK/p.gif',
+			'https://previews.dropbox.com/p/thumb/ACPa3guJWeAQgQPBDvlJyOWn4zc5_SrVRv_6bAi309ipLt8ekxalN1OZl5L-srFEEsD_ECDhLTC__P_YT6yi86ZUNZ_SeQk04S6tB6bIMS6eN6JTGNQQFaMvBg1lCuXG6jk9VPAjobAVzIiNN72lXj1CX7PCc2zN7NdGI4nE3gPTpa1bJr4gq4KpzJHllXFn68aBGJ3oQGoWOlTihlhUOi7ImVLpBu4gCc--yBcVS-OZ0UNR-M-t2X_DqAX-dEEJ5gloQLdrGM-v7ZMO1RphxJrmC3-P93K7EaZRIG-ZcgnjBmna3pePNIK5GWAOztYIWNtcgR4RZ8HVKqfJaqt5xukK/p.gif',
             'https://i.gifer.com/origin/ae/ae9df5f74dd3be5c6e7a23ce0076d45a.gif',
             'https://img.besty.pl/upload/file/2524686.gif',
             'https://i.makeagif.com/media/8-03-2015/j2yoEP.gif',
@@ -60,21 +62,37 @@
 			"https://www.gify.net/data/media/64/straz-pozarna-ruchomy-obrazek-0141.gif"
 		];
 
+        var dozynkiImageSources = [
+			"https://i.pinimg.com/originals/91/16/0a/91160aa0c4ac8d913ca13bce8053072d.gif",
+			"https://www.terazkrosno.pl/images/rrrcontent/images/larges/dozynki-diecezjalne-w-rzeszowie-2023_20669_UANM0s.jpg",
+			"https://media.tenor.com/70P6BGsV-vYAAAAM/%C5%9Bwi%C4%99to-plon%C3%B3w-swieto-plonow.gif",
+			"https://i.makeagif.com/media/9-30-2016/6cgrI6.gif",
+			"https://cdn.galleries.smcloud.net/t/galleries/gf-rxc1-wtMQ-nxmQ_dozynki-664x442.jpg",
+			"https://www.ustronie-morskie.pl/upload/art/5751_img1_69773499_442336716492302_9091301483265130496_n.jpg",
+			"https://wrzesnia.info.pl/news_foto/2023/0816/128981.jpg",
+			"https://www.torun.pl/sites/default/files/dozynki_foto_www.jpg",
+			"https://mojaswidnica.pl/wp-content/uploads/2020/07/do%C5%BCynki.jpg",
+			"https://samorzad.gov.pl/photo/format/5c638ab5-3366-499a-a19d-738ec8296ce9/resolution/1920x810",
+			"https://static2.igryfino.pl/data/articles/xl-zapraszamy-na-dozynki-gminne-bedzie-ogien-1694817508-full.jpg",
+		];
+
         window.onload = function() {
             var hour = pobierzGodzine();
             var typLinkow;
 			var source;
 			var napis = document.getElementById('napis');
-            if (hour % 2 == 0) {
+            if (hour <= 20) {
                 typLinkow = "traktory.txt";
 				source = traktorImageSources;
 				napis.src = 'orepole.gif';
-				
-				
-            } else {
+            } else if (hour <= 40) {
                 typLinkow = "osp.txt";
 				source = ospImageSources;
 				napis.src = 'styrta.gif';
+            } else if (hour <= 60) {
+                typLinkow = "dozynki.txt";
+				source = dozynkiImageSources;
+				napis.src = 'dozynki.gif';
             }
 
             console.log(hour);
@@ -86,8 +104,10 @@
                 // Stwórz nowy element <img>
                 var imgElement = document.createElement('img');
 
+                // Ustaw atrybut src dla nowego elementu <img>
                 imgElement.src = src;
 
+                // Dodaj nowy element <img> do kontenera obrazków
                 imagesContainer.appendChild(imgElement);
             });
 
@@ -117,15 +137,16 @@
                 var randomLink = getRandomLine(links);
                 setTimeout(function() {
                     window.location.href = randomLink;
-                }, 5000);
+                }, 2000);
             });
         };
 
         function pobierzGodzine() {
             var dzisiaj = new Date();
-            var godzina = dzisiaj.getHours();
+            var godzina = dzisiaj.getMinutes();
             return godzina;
         }
     </script>
 </body>
 </html>
+
