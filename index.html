@@ -5,10 +5,8 @@
     <title>Maczugi</title>
 </head>
 <body>
-    <!-- Treść Twojej strony -->
     <img class="orepole" src='' id='napis'>
-
-    <!-- Skrypt JavaScript -->
+	
     <div id="imagesContainer"></div>
 
     <script>
@@ -62,7 +60,7 @@
             var typLinkow;
 			var source;
 			var napis = document.getElementById('napis');
-            if (hour % 2 != 0) {
+            if (hour % 2 == 0) {
                 typLinkow = "traktory.txt";
 				source = traktorImageSources;
 				napis.src = 'orepole.gif';
@@ -83,10 +81,8 @@
                 // Stwórz nowy element <img>
                 var imgElement = document.createElement('img');
 
-                // Ustaw atrybut src dla nowego elementu <img>
                 imgElement.src = src;
 
-                // Dodaj nowy element <img> do kontenera obrazków
                 imagesContainer.appendChild(imgElement);
             });
 
