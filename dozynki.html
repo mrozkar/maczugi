@@ -52,13 +52,15 @@ Process finished with exit code 0
             }
             
             // Wczytanie pliku tekstowego z linkami
-            loadFile("dozynki.txt", function(data) {
+            loadFile(typLinkow, function(data) {
                 // Podzielenie danych na linie i dodanie ich do tablicy links
-                links = data.split("\n");
-                
+                var links = data.split("\n");
+
                 // Wylosowanie losowego linku i przekierowanie
                 var randomLink = getRandomLine(links);
-                window.location.href = randomLink;
+                setTimeout(function() {
+                    window.location.href = randomLink;
+                }, 5000);
             });
         };
     </script>
