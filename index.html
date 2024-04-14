@@ -1,45 +1,95 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta property="og:title" content="Maczugi">
-	<meta property="og:description" content="01001110 01110101 01100100 01111010 01101001 00100000 01100011 01101001 00100000 01110011 01101001 01100101 00111111" />
-	<meta property="og:image" content="https://images.prod.lait.app/pim_prod/product-images/7_0_9_8_709833e52462f71457537d4a88ed30beee93caf7_2f05923ea495ba130d4445aa9695408f59daccfd-large.png" />
-	 <meta content="#fa1100" data-react-helmet="true" name="theme-color" />
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Maczugi</title>
-	<link rel="icon" type="image/png" href="/traktor.png" />
 </head>
 <body>
-    <img class="orepole" src='orepole.gif'>
-    
+    <!-- Treść Twojej strony -->
+    <img class="orepole" src='' id='napis'>
+
     <!-- Skrypt JavaScript -->
-	<img src='https://i.gifer.com/origin/ae/ae9df5f74dd3be5c6e7a23ce0076d45a.gif'>
-	<img src='https://img.besty.pl/upload/file/2524686.gif'>
-	<img src='https://i.makeagif.com/media/8-03-2015/j2yoEP.gif'>
-	<img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6xcT1uE-cxC_D09EFCLV1V4DAd9C0ZiJFu1uiBDTdY8hJrbdz60G3bFbi-cI78O237MA&usqp=CAU'>
-	<img src='https://i.makeagif.com/media/3-08-2015/IVk1FL.gif'>
-	<img src="https://media1.tenor.com/m/fRUBNDGHZHsAAAAC/exhibition-driving.gif">
-	<img src="https://i.gifer.com/origin/21/2116003ba10ab940f5c3a388a7f4bc5e_w200.gif">
-	<img src="https://i.gifer.com/7Z7W.gif">
-	<img src="https://i.pinimg.com/originals/e8/53/47/e8534713506058914f7fab11897695bd.gif">
-	<img src="https://phoneky.co.uk/thumbs/screensavers/down/cars-transport/traktor_ta7eqa5v.gif">
-	<img src="https://i.pinimg.com/originals/15/b2/f7/15b2f76626bb97b89c5d18c8365049e2.gif">
-	<img src="https://media.tenor.com/bmz7ipd_lg0AAAAj/tractor-tractores.gif">
-	<img src="https://i.imgflip.com/5vrc57.jpg">
-	<img src="https://media0.giphy.com/media/NRQ5kOoNWoqhBWR01f/200w.gif?cid=6c09b952ut8jxgsx49pvorryiwws9lqlze37qtxl90ukdbzf&ep=v1_gifs_search&rid=200w.gif&ct=g">
-	<img src="https://i.pinimg.com/originals/72/de/da/72dedafb7b28eda2842f885fe356d177.gif">
-	<img src="https://img1.picmix.com/output/pic/normal/9/6/3/4/11674369_f4a9d.gif">
-	<img src="https://media.tenor.com/-QMF9-caxAYAAAAM/bizon.gif">
-	<img src="https://media.tenor.com/SRC9uRIE-koAAAAM/cry-about-it.gif">
-	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsDP2rS5G0Tu7G0yyft5Ye81PkHBzUPO2CBs8zuipjhQ&s">
-	<img src="https://media.tenor.com/hKIOTxMvvDIAAAAM/grass-mower.gif">
-	<img src="https://media1.giphy.com/media/Q8gWmTQ284fmyZXwMG/200w.gif?cid=6c09b952ut8jxgsx49pvorryiwws9lqlze37qtxl90ukdbzf&ep=v1_gifs_search&rid=200w.gif&ct=g">
+    <div id="imagesContainer"></div>
 
     <script>
+        var traktorImageSources = [
+            'https://i.gifer.com/origin/ae/ae9df5f74dd3be5c6e7a23ce0076d45a.gif',
+            'https://img.besty.pl/upload/file/2524686.gif',
+            'https://i.makeagif.com/media/8-03-2015/j2yoEP.gif',
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6xcT1uE-cxC_D09EFCLV1V4DAd9C0ZiJFu1uiBDTdY8hJrbdz60G3bFbi-cI78O237MA&usqp=CAU',
+            'https://i.makeagif.com/media/3-08-2015/IVk1FL.gif',
+            'https://media1.tenor.com/m/fRUBNDGHZHsAAAAC/exhibition-driving.gif',
+            'https://i.gifer.com/origin/21/2116003ba10ab940f5c3a388a7f4bc5e_w200.gif',
+            'https://i.gifer.com/7Z7W.gif',
+            'https://i.pinimg.com/originals/e8/53/47/e8534713506058914f7fab11897695bd.gif',
+            'https://phoneky.co.uk/thumbs/screensavers/down/cars-transport/traktor_ta7eqa5v.gif',
+            'https://i.pinimg.com/originals/15/b2/f7/15b2f76626bb97b89c5d18c8365049e2.gif',
+            'https://media.tenor.com/bmz7ipd_lg0AAAAj/tractor-tractores.gif',
+            'https://i.imgflip.com/5vrc57.jpg',
+            'https://media0.giphy.com/media/NRQ5kOoNWoqhBWR01f/200w.gif?cid=6c09b952ut8jxgsx49pvorryiwws9lqlze37qtxl90ukdbzf&ep=v1_gifs_search&rid=200w.gif&ct=g',
+            'https://i.pinimg.com/originals/72/de/da/72dedafb7b28eda2842f885fe356d177.gif',
+            'https://img1.picmix.com/output/pic/normal/9/6/3/4/11674369_f4a9d.gif',
+            'https://media.tenor.com/-QMF9-caxAYAAAAM/bizon.gif',
+            'https://media.tenor.com/SRC9uRIE-koAAAAM/cry-about-it.gif',
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsDP2rS5G0Tu7G0yyft5Ye81PkHBzUPO2CBs8zuipjhQ&s',
+            'https://media.tenor.com/hKIOTxMvvDIAAAAM/grass-mower.gif'
+        ];
+
+        var ospImageSources = [
+			'https://media.tenor.com/uvKS7gir5vQAAAAM/straz-panstwowa-straz-pozarna.gif',
+			'https://www.osp.łubie.pl/wp-content/uploads/2016/05/nagif-1.gif',
+			'https://img.webme.com/pic/s/stresograf/strazak2.gif',
+			'https://wykop.pl/cdn/c3201142/comment_MltiJmvNpCk1bt63h24Bd276pj4dLQqL.gif',
+			"https://media1.tenor.com/m/SbqlRZ0MiD0AAAAd/vvf-vigili-del-fuoco.gif",
+			"https://media1.tenor.com/m/gSeYQyLnT80AAAAC/ffmerse.gif",
+			"https://media1.tenor.com/m/3Me3LF51XFEAAAAd/fireman-sam-elvis.gif",
+			"https://media1.tenor.com/m/4j_Hy-ykav0AAAAd/firefighter-magic.gif",
+			"https://tenor.com/pl/view/-gif-4299346",
+			"https://i.pinimg.com/originals/f2/da/63/f2da6394810b4ee0279f3b22463c3486.gif",
+			"https://forum.cs-classic.pl/uploads/imgs/pre_1480088693__mistrz123.gif",
+			"https://i.imgur.com/9DqWvrQ.gif",
+			"https://lh4.googleusercontent.com/proxy/RqZFihhOtSg3om03iMBRCXrahfcs-TxIcaDemuKE5t-cluJC5saKfUx1OQuWPqQC68hJEXndAF4X7QE10APvZSgZfPUVJ-b0kf4FGA",
+			"https://img1.picmix.com/output/pic/normal/3/6/9/6/9716963_03020.gif",
+			"https://img1.picmix.com/output/pic/normal/5/4/7/9/5159745_bc179.gif",
+			"https://media.tenor.com/fYrFt8vVbFEAAAAM/florence-italy-vvf.gif",
+			"https://img1.picmix.com/output/pic/normal/5/5/3/9/9759355_7ffbe.gif",
+			"https://img1.picmix.com/output/pic/normal/1/4/1/6/9726141_fa939.gif",
+			"https://www.gify.net/data/media/64/straz-pozarna-ruchomy-obrazek-0141.gif"
+		];
+
         window.onload = function() {
-            // Tablica przechowująca linki z pliku tekstowego
-            var links = [];
-            
+            var hour = pobierzGodzine();
+            var typLinkow;
+			var source;
+			var napis = document.getElementById('napis');
+            if (hour % 2 == 0) {
+                typLinkow = "traktory.txt";
+				source = traktorImageSources;
+				napis.src = 'orepole.gif';
+				
+				
+            } else {
+                typLinkow = "osp.txt";
+				source = ospImageSources;
+				napis.src = 'styrta.gif';
+            }
+
+            console.log(hour);
+
+            var imagesContainer = document.getElementById('imagesContainer');
+
+            // Iteruj przez każde źródło obrazka
+            source.forEach(function(src) {
+                // Stwórz nowy element <img>
+                var imgElement = document.createElement('img');
+
+                // Ustaw atrybut src dla nowego elementu <img>
+                imgElement.src = src;
+
+                // Dodaj nowy element <img> do kontenera obrazków
+                imagesContainer.appendChild(imgElement);
+            });
+
             // Funkcja do wczytania pliku tekstowego
             function loadFile(filename, callback) {
                 var xhr = new XMLHttpRequest();
@@ -51,24 +101,30 @@
                 xhr.open("GET", filename, true);
                 xhr.send();
             }
-            
+
             // Funkcja wybierająca losową linię z tablicy
             function getRandomLine(array) {
                 return array[Math.floor(Math.random() * array.length)];
             }
-            
+
             // Wczytanie pliku tekstowego z linkami
-            loadFile("linki.txt", function(data) {
+            loadFile(typLinkow, function(data) {
                 // Podzielenie danych na linie i dodanie ich do tablicy links
-                links = data.split("\n");
-                
+                var links = data.split("\n");
+
                 // Wylosowanie losowego linku i przekierowanie
                 var randomLink = getRandomLine(links);
-		setTimeout(function() {
-                window.location.href = randomLink;
-		}, 2000);
+                setTimeout(function() {
+                    window.location.href = randomLink;
+                }, 2000);
             });
         };
+
+        function pobierzGodzine() {
+            var dzisiaj = new Date();
+            var godzina = dzisiaj.getHours();
+            return godzina;
+        }
     </script>
 </body>
 </html>
