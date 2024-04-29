@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" href="/traktor.png" />
 </head>
 <body>
-    <h1 class="orepole" id="fire">Hello World</h1>
+    <h1 class="orepole" id="fire"></h1>
 	
     <div id="imagesContainer"></div>
 
@@ -83,15 +83,15 @@
 			var source;
 			var napis = document.getElementById('fire');
             if (hour <= 20) {
-                typLinkow = "traktory.txt";
+                typLinkow = "txt/traktory.txt";
 				source = traktorImageSources;
 				
             } else if (hour <= 40) {
-                typLinkow = "osp.txt";
+                typLinkow = "txt/osp.txt";
 				source = ospImageSources;
 				
             } else if (hour <= 60) {
-                typLinkow = "dozynki.txt";
+                typLinkow = "txt/dozynki.txt";
 				source = dozynkiImageSources;
 				
             }
