@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" href="/traktor.png" />
 </head>
 <body>
-    <img class="orepole" src='' id='napis'>
+    <h1 class="orepole" id="fire"></h1>
 	
     <div id="imagesContainer"></div>
 
@@ -81,19 +81,19 @@
             var hour = pobierzGodzine();
             var typLinkow;
 			var source;
-			var napis = document.getElementById('napis');
+			var napis = document.getElementById('fire');
             if (hour <= 20) {
                 typLinkow = "traktory.txt";
 				source = traktorImageSources;
-				napis.src = 'orepole.gif';
+				
             } else if (hour <= 40) {
                 typLinkow = "osp.txt";
 				source = ospImageSources;
-				napis.src = 'styrta.gif';
+				
             } else if (hour <= 60) {
                 typLinkow = "dozynki.txt";
 				source = dozynkiImageSources;
-				napis.src = 'dozynki.gif';
+				
             }
 
             console.log(hour);
@@ -130,16 +130,25 @@
             }
 
             // Wczytanie pliku tekstowego z linkami
-            loadFile(typLinkow, function(data) {
-                // Podzielenie danych na linie i dodanie ich do tablicy links
-                var links = data.split("\n");
+			loadFile(typLinkow, function(data) {
+				// Podzielenie danych na linie i dodanie ich do tablicy links
+				var links = data.split("\n");
 
-                // Wylosowanie losowego linku i przekierowanie
-                var randomLink = getRandomLine(links);
-                setTimeout(function() {
-                    window.location.href = randomLink;
-                }, 5000);
-            });
+				// Wylosowanie losowego linku i przypisanie do zmiennej randomLink oraz randomTitle
+				var randomLine = getRandomLine(links);
+				var randomSplit = randomLine.split("---");
+				var randomLink = randomSplit[0];
+				var randomTitle = randomSplit[1];
+				var napis = document.getElementById('fire');
+				napis.innerHTML = randomTitle;
+				console.log(randomLink)
+				console.log(randomTitle)
+				// Przekierowanie po 5 sekundach
+				setTimeout(function() {
+					window.location.href = randomLink;
+				}, 5000);
+			});
+
         };
 
         function pobierzGodzine() {
